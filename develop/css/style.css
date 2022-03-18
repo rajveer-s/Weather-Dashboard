@@ -1,0 +1,13 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root{
+  --w: #fff;
+}
+html body{
+  color: var(--w);
+  /* background: url(https://source.unsplash.com/2200x1100/?weather); */
+  background: url(https://images.unsplash.com/photo-1561471026-0bbb77535d25?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1100&ixid=MnwxfDB8MXxyYW5kb218MHx8d2VhdGhlcnx8fHx8fDE2NDczOTU2ODU&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=2200);
+}
