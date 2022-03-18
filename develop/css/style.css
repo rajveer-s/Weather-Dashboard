@@ -95,8 +95,18 @@ clear: both;
       width: 100%;
     }
   }
-  #weatherUv{
+  .uvBlue{
     background-color: blue;
+    width: 12%;
     color: white;
-    width: 9%;
+  }
+  .uvYellow{
+    background-color: yellow;
+    width: 12%;
+    color: black;
+  }
+  .uvRed{
+    background-color: red;
+    width: 12%;
+
   }

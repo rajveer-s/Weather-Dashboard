@@ -64,10 +64,10 @@ let saveCity = (newCity) => {
 }
 
 let displayCity = () => {
+  // searchHistoryDiv = '';
 
   let cities = JSON.parse(localStorage.getItem('results'));
   if (!cities) cities = [];
-
 
   for (var i = 0; i < cities.length; i++) {
 
@@ -112,11 +112,11 @@ let renderWeather = (searchCity) => {
           weatherUv.textContent = `UVI Index: ${oneCallData.current.uvi}`;
 
           // changing the background color according to the UV Index numbers 
-          if (weatherUv >= 0 && weatherUv < 3) {
+          if (oneCallData.current.uvi >= 0 && oneCallData.current.uvi < 3) {
             weatherUv.classList.add('uvBlue');
-          } else if (weatherUv >= 4 && weatherUv < 8) {
-            weatherUv.classList.add('Uvyellow');
-          } else if (weatherUv >= 8) {
+          } else if (oneCallData.current.uvi >= 4 && oneCallData.current.uvi < 8) {
+            weatherUv.classList.add('uvYellow');
+          } else if (oneCallData.current.uvi >= 8) {
             weatherUv.classList.add('uvRed');
           }
 
