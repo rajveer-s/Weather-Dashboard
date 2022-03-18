@@ -112,6 +112,13 @@ let renderWeather = (searchCity) => {
           day3Wind.textContent = `Wind Speed: ${oneCallData.daily[2].wind_speed} mph`;
           day3Humidity.textContent = `Humidity: ${oneCallData.daily[2].humidity} %`;
 
+          // day 4
+          day4Date.textContent = moment().add(4, 'day').format("MM/DD/YYYY");
+          day4Img.src = "http://openweathermap.org/img/w/" + oneCallData.daily[3].weather[0].icon + ".png";
+          day4Temp.textContent = `Temp: ${oneCallData.daily[3].temp.day} F`;
+          day4Wind.textContent = `Wind Speed: ${oneCallData.daily[3].wind_speed} mph`;
+          day4Humidity.textContent = `Humidity: ${oneCallData.daily[3].humidity} %`;
+
 
 
 
