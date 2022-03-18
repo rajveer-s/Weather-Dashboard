@@ -55,4 +55,20 @@ let searchBar = (e) => {
   localStorage.setItem('recent', JSON.stringify(searchInputVal))
 }
 
+let renderWeather = (searchCity) => {
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&APPID=${apiKey}&units=imperial`;
+
+
+  fetch(apiUrl).then(res => res.json())
+      .then((data) => {
+          let latCoord = data.coord.lat
+          let lonCoord = data.coord.lon
+          let displayName = data.name
+
+
+
+
+
+
+
 submitBtn.addEventListener('click', searchBar);
