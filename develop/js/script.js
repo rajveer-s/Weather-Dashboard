@@ -55,6 +55,7 @@ let searchBar = (e) => {
   renderWeather(currentCity);
 }
 
+// saves the current city in the local storage 
 let saveCity = (newCity) => {
   let saveCities = JSON.parse(localStorage.getItem("results"));
   if (saveCities === null) {
@@ -69,6 +70,7 @@ let saveCity = (newCity) => {
   displayCity()
 }
 
+// displays the city in the DOM from local storage and creates a button 
 let displayCity = () => {
 
   let cities = JSON.parse(localStorage.getItem('results'));
@@ -109,7 +111,7 @@ let renderWeather = (searchCity) => {
           // displaying the info on the page 
           cityName.textContent = displayName;
           weatherIcon.src = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
-          updatedDate.textContent = `date: ${moment().format("MM/DD/YYYY")}`;
+          updatedDate.textContent = `Date: ${moment().format("MM/DD/YYYY")}`;
           weatherTemp.textContent = `Temp: ${oneCallData.current.temp} F`;
           weatherHumidity.textContent = `Humidity: ${oneCallData.current.humidity} %`;
           weatherWind.textContent = `Wind Speed: ${oneCallData.current.wind_speed} mph`;
