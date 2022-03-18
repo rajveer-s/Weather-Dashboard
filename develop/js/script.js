@@ -1,3 +1,5 @@
+// global variables 
+//ps. variable line 6-38 could have been called upon inside the function and it would have looked a little better, but i just did it for convenience.
 const apiKey = "437915cfc3abfad1c084c21077147df7";
 const searchInput = document.querySelector('#userInput');
 const submitBtn = document.querySelector('#submitBtn');
@@ -36,15 +38,15 @@ let day5Wind = document.querySelector('#day5Wind');
 let day5Humidity = document.querySelector('#day5Humidity');
 
 
-
+// search input 
 let searchBar = (e) => {
   e.preventDefault();
 
   let searchInputVal = searchInput.value;
 
   if (searchInputVal === '' || searchInputVal === null) {
-      console.log('City name is required')
-      return false;
+    console.log('City name is required')
+    return false;
   }
   renderWeather(searchInputVal);
 
@@ -55,25 +57,42 @@ let searchBar = (e) => {
   localStorage.setItem('recent', JSON.stringify(searchInputVal))
 }
 
+// fetching the weather data & displaying it in the DOM 
 let renderWeather = (searchCity) => {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&APPID=${apiKey}&units=imperial`;
 
 
   fetch(apiUrl).then(res => res.json())
-      .then((data) => {
-          let latCoord = data.coord.lat
-          let lonCoord = data.coord.lon
-          let displayName = data.name
+    .then((data) => {
+      let latCoord = data.coord.lat
+      let lonCoord = data.coord.lon
+      let displayName = data.name
 
-          fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latCoord}&lon=${lonCoord}&units=imperial&exclude=minutely,hourly&appid=${apiKey}`)
-          .then(response => response.json())
-          .then((oneCallData) => {
+      fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latCoord}&lon=${lonCoord}&units=imperial&exclude=minutely,hourly&appid=${apiKey}`)
+        .then(response => response.json())
+        .then((oneCallData) => {
 
-              cityName.textContent = displayName;
+          // displaying the info on the page 
+          cityName.textContent = displayName;
+          weatherIcon.src = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
+          updatedDate.textContent = `date: ${moment().format("MM/DD/YYYY")}`;
+          weatherTemp.textContent = `Temp: ${oneCallData.current.temp} F`;
+          weatherHumidity.textContent = `Humidity: ${oneCallData.current.humidity} %`;
+          weatherWind.textContent = `Wind Speed: ${oneCallData.current.wind_speed} mph`;
+          weatherUv.textContent = `UVI Index: ${oneCallData.current.uvi}`;
+
+          // changing the background color according to the UV Index numbers 
+          if (weatherUv >= 0 && weatherUv < 3) {
+            weatherUv.classList.add('uvBlue');
+          } else if (weatherUv >= 4 && weatherUv < 8) {
+            weatherUv.classList.add('Uvyellow');
+          } else if (weatherUv >= 8) {
+            weatherUv.classList.add('uvRed');
+          }
 
 
 
 
 
 
-submitBtn.addEventListener('click', searchBar);
+          submitBtn.addEventListener('click', searchBar);
