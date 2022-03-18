@@ -22,7 +22,7 @@
   <!-- main container  -->
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-2 col-sm-4 col-xs-6" id="search-div"> 
+      <div class="col-md-2 col-sm-4 col-xs-6" id="search-div">
         <h3>Search for a City:</h3>
         <form class="input-group my-3">
           <!-- search bar  -->
@@ -33,11 +33,33 @@
           </div>
         </form>
         <hr>
+        <!-- to store searched results  -->
+        <div id="searchHistory"></div>
+      </div>
+      <!-- right column -->
+      <div class="col-md-10 col-sm-8 col-xs-6" id="containerBody">
+        <h3>Weather Report</h3>
+        <img id="weatherIcon">
+        <div id="cityName">
+        </div>
+        <div class="row" id="weather-results">
+          <div class="card bg-dark.bg-gradient text-dark m-3 w-100">
+            <div class="card-header" id="weatherDate">Date:</div>
+            <div class="card-body">
+              <p class="card-style" id="weatherTemp">Temp:</p>
+              <p class="card-style" id="weatherHumidity">Humidity:</p>
+              <p class="card-style" id="weatherWind">Wind Speed:</p>
+              <p class="card-style" id="weatherUv">UVIndex: <span>0</span></p>
+            </div>
+          </div>
+        </div>
+        <hr>
 
 
 
 
-  <script src="./develop/js/script.js"></script>
+
+        <script src="./develop/js/script.js"></script>
 </body>
 
 </html>
