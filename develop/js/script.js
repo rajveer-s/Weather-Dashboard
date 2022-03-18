@@ -94,5 +94,16 @@ let renderWeather = (searchCity) => {
 
 
 
+        })
 
-          submitBtn.addEventListener('click', searchBar);
+
+
+
+    })
+    .catch((error) => {
+      console.error(error)
+    })
+}
+
+
+submitBtn.addEventListener('click', searchBar);
