@@ -8,7 +8,6 @@
 }
 html body{
   color: var(--w);
-  /* background: url(https://source.unsplash.com/2200x1100/?weather); */
   background: url(https://images.unsplash.com/photo-1561471026-0bbb77535d25?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1100&ixid=MnwxfDB8MXxyYW5kb218MHx8d2VhdGhlcnx8fHx8fDE2NDczOTU2ODU&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=2200);
 }
 /* header  */
@@ -45,3 +44,45 @@ img#weatherIcon {
   outline: none;
   border: none;
 }
+/* 5-day forecast  */
+#fivedayForecast .column {
+  float: left;
+  width: 18%;
+  padding: 0 10px;
+  font-size: 18px;
+  font-weight: 600;
+}
+/* weather icons  */
+#fivedayForecast #day1Img, #day2Img, #day3Img, #day4Img, #day5Img{
+  height: 50px;
+  width: 50px;
+}
+
+#fivedayForecast .row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+#fivedayForecast .row:after {
+content: "";
+display: table;
+clear: both;
+
+}
+
+#fivedayForecast .card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  line-height: 3rem;
+  height: 25rem;
+  color: black;
+  opacity: .8;
+  /* text-align: center; */
+  background-color: #f1f1f1;
+}
+  /* Responsive columns - one column layout (vertical) on small screens */
+  @media screen and (max-width: 600px) {
+    #fivedayForecast .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
