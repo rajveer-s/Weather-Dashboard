@@ -70,7 +70,6 @@ let saveCity = (newCity) => {
 }
 
 let displayCity = () => {
-  // searchHistoryDiv = '';
 
   let cities = JSON.parse(localStorage.getItem('results'));
   if (!cities) cities = [];
@@ -81,7 +80,6 @@ let displayCity = () => {
     buttonEl.textContent = cities[i];
     buttonEl.setAttribute("data-index", i);
     cityResults.appendChild(buttonEl);
-    console.log(buttonEl);
 
   }
 }
