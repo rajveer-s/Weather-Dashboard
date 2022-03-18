@@ -90,6 +90,14 @@ let renderWeather = (searchCity) => {
             weatherUv.classList.add('uvRed');
           }
 
+          // // 5 day forecast 
+          // day 1
+          day1Date.textContent = moment().add(1, 'day').format("MM/DD/YYYY");
+          day1Img.src = "http://openweathermap.org/img/w/" + oneCallData.daily[0].weather[0].icon + ".png";
+          day1Temp.textContent = `Temp: ${oneCallData.daily[0].temp.day} F`;
+          day1Wind.textContent = `Wind Speed: ${oneCallData.daily[0].wind_speed} mph`;
+          day1Humidity.textContent = `Humidity: ${oneCallData.daily[0].humidity} %`;
+
 
 
 
