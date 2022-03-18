@@ -54,3 +54,5 @@ let searchBar = (e) => {
 
   localStorage.setItem('recent', JSON.stringify(searchInputVal))
 }
+
+submitBtn.addEventListener('click', searchBar);
