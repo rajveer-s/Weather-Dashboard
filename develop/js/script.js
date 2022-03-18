@@ -3,7 +3,7 @@
 const apiKey = "437915cfc3abfad1c084c21077147df7";
 const searchInput = document.querySelector('#userInput');
 const submitBtn = document.querySelector('#submitBtn');
-const searchHistory = document.querySelector('#searchHistory');
+const searchHistoryDiv = document.querySelector('#searchHistory');
 let cityName = document.querySelector('#cityName');
 let updatedDate = document.querySelector('#weatherDate');
 let weatherIcon = document.querySelector('#weatherIcon');
@@ -36,26 +36,54 @@ let day5Date = document.querySelector('#day5Date');
 let day5Img = document.querySelector('#day5Img');
 let day5Wind = document.querySelector('#day5Wind');
 let day5Humidity = document.querySelector('#day5Humidity');
+let cityResults = document.querySelector('#cityResults')
+let currentCity = '';
+let searchHistory = [];
+
 
 
 // search input 
 let searchBar = (e) => {
   e.preventDefault();
 
-  let searchInputVal = searchInput.value;
+  currentCity = searchInput.value;
 
-  if (searchInputVal === '' || searchInputVal === null) {
+  if (currentCity === '' || currentCity === null) {
     console.log('City name is required')
     return false;
   }
-  renderWeather(searchInputVal);
-
-  const recentStore = [];
-  JSON.parse(localStorage.getItem("recentStore"))
-
-
-  localStorage.setItem('recent', JSON.stringify(searchInputVal))
+  renderWeather(currentCity);
 }
+
+let saveCity = (newCity) => {
+  searchHistory.push(newCity);
+
+  localStorage.setItem('results', JSON.stringify(searchHistory))
+
+  displayCity()
+}
+
+let displayCity = () => {
+
+  let cities = JSON.parse(localStorage.getItem('results'));
+  if (!cities) cities = [];
+
+
+  for (var i = 0; i < cities.length; i++) {
+
+    var buttonEl = document.createElement("button");
+    buttonEl.textContent = cities[i];
+    buttonEl.setAttribute("data-index", i);
+    cityResults.appendChild(buttonEl);
+    console.log(buttonEl);
+
+  }
+}
+
+displayCity()
+
+
+
 
 // fetching the weather data & displaying it in the DOM 
 let renderWeather = (searchCity) => {
@@ -67,6 +95,8 @@ let renderWeather = (searchCity) => {
       let latCoord = data.coord.lat
       let lonCoord = data.coord.lon
       let displayName = data.name
+      saveCity(currentCity)
+
 
       fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latCoord}&lon=${lonCoord}&units=imperial&exclude=minutely,hourly&appid=${apiKey}`)
         .then(response => response.json())
@@ -129,10 +159,6 @@ let renderWeather = (searchCity) => {
 
 
         })
-
-
-
-
     })
     .catch((error) => {
       console.error(error)
