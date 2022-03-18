@@ -15,3 +15,21 @@ header h2{
   text-align: center;
   margin-top: 1.2rem;
 }
+#weather-results{
+  margin-right: 2rem;
+}
+#search-div{
+  border: 2px white solid;
+}
+#cityName{
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+}
+#containerBody{
+  position: relative;
+}
+.card.bg-dark\.bg-gradient.text-dark.m-3.w-100 {
+  font-size: 18px;
+  font-weight: 600;
+}

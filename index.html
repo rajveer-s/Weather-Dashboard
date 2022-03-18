@@ -14,10 +14,25 @@
 </head>
 
 <body>
+  <!-- header  -->
   <header>
     <h2>Weather Dashboard</h2>
   </header>
   <hr>
+  <!-- main container  -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2 col-sm-4 col-xs-6" id="search-div"> 
+        <h3>Search for a City:</h3>
+        <form class="input-group my-3">
+          <!-- search bar  -->
+          <input type="text" id="userInput" class="form-control" placeholder="Los Angeles" required>
+          <div class="input-group-append">
+            <!-- search button  -->
+            <button class="btn btn-primary" id="submitBtn"><i class="fas fa-search"></i></button>
+          </div>
+        </form>
+        <hr>
 
 
 
