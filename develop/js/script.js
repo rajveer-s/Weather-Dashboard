@@ -34,3 +34,23 @@ let day5Date = document.querySelector('#day5Date');
 let day5Img = document.querySelector('#day5Img');
 let day5Wind = document.querySelector('#day5Wind');
 let day5Humidity = document.querySelector('#day5Humidity');
+
+
+
+let searchBar = (e) => {
+  e.preventDefault();
+
+  let searchInputVal = searchInput.value;
+
+  if (searchInputVal === '' || searchInputVal === null) {
+      console.log('City name is required')
+      return false;
+  }
+  renderWeather(searchInputVal);
+
+  const recentStore = [];
+  JSON.parse(localStorage.getItem("recentStore"))
+
+
+  localStorage.setItem('recent', JSON.stringify(searchInputVal))
+}
