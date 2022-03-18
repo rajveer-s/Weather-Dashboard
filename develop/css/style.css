@@ -91,4 +91,12 @@ clear: both;
       display: block;
       margin-bottom: 20px;
     }
+    #weatherUv{
+      width: 100%;
+    }
+  }
+  #weatherUv{
+    background-color: blue;
+    color: white;
+    width: 9%;
   }
