@@ -44,6 +44,12 @@ img#weatherIcon {
   outline: none;
   border: none;
 }
+img{
+  display: none;
+}
+img[src]{
+  display: block;
+}
 /* 5-day forecast  */
 #fivedayForecast .column {
   float: left;
