@@ -65,6 +65,11 @@ let renderWeather = (searchCity) => {
           let lonCoord = data.coord.lon
           let displayName = data.name
 
+          fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latCoord}&lon=${lonCoord}&units=imperial&exclude=minutely,hourly&appid=${apiKey}`)
+          .then(response => response.json())
+          .then((oneCallData) => {
+
+              cityName.textContent = displayName;
 
 
 
