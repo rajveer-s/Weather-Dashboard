@@ -56,6 +56,12 @@ let searchBar = (e) => {
 }
 
 let saveCity = (newCity) => {
+  let saveCities = JSON.parse(localStorage.getItem("results"));
+  if (saveCities === null) {
+    searchHistory = [];
+  } else {
+    searchHistory = saveCities;
+  }
   searchHistory.push(newCity);
 
   localStorage.setItem('results', JSON.stringify(searchHistory))
@@ -68,7 +74,7 @@ let displayCity = () => {
 
   let cities = JSON.parse(localStorage.getItem('results'));
   if (!cities) cities = [];
-
+  cityResults.textContent = "";
   for (var i = 0; i < cities.length; i++) {
 
     var buttonEl = document.createElement("button");
@@ -110,7 +116,7 @@ let renderWeather = (searchCity) => {
           weatherHumidity.textContent = `Humidity: ${oneCallData.current.humidity} %`;
           weatherWind.textContent = `Wind Speed: ${oneCallData.current.wind_speed} mph`;
           weatherUv.textContent = `UVI Index: ${oneCallData.current.uvi}`;
-
+          weatherUv.removeAttribute("class");
           // changing the background color according to the UV Index numbers 
           if (oneCallData.current.uvi >= 0 && oneCallData.current.uvi < 3) {
             weatherUv.classList.add('uvBlue');
