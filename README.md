@@ -8,7 +8,6 @@
   - [User Story](#user-story)
   - [Acceptance Criteria](#acceptance-criteria)
 - [Questions?](#questions)
-    - [Email: rajsidhu2924@gmail.com](#email-rajsidhu2924gmailcom)
 
 
 ## Description 
