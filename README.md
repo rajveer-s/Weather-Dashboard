@@ -1,5 +1,15 @@
 # Weather-Dashboard
 
+- [Weather-Dashboard](#weather-dashboard)
+  - [Description](#description)
+  - [Technologies Used](#technologies-used)
+  - [Links](#links)
+  - [Screenshot](#screenshot)
+  - [User Story](#user-story)
+  - [Acceptance Criteria](#acceptance-criteria)
+- [Questions?](#questions)
+    - [Email: rajsidhu2924@gmail.com](#email-rajsidhu2924gmailcom)
+
 
 ## Description 
 
@@ -29,6 +39,8 @@ There isn't anything worse than going on a vacation and then not be able to go o
 
 ## Screenshot
 ![Screenshot](./develop/screenshot/Weather%20Dashboard.png)
+![Screenshot](./develop/screenshot/Weather%20Dashboard%20(1).png)
+
 
 
 ## User Story
@@ -54,3 +66,8 @@ THEN I am presented with a 5-day forecast that displays the date, an icon repres
 WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city
 ```
+
+---
+
+# Questions?
+### Email: rajsidhu2924@gmail.com

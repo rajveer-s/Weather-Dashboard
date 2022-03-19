@@ -90,6 +90,15 @@ displayCity()
 
 
 
+cityResults.addEventListener('click', (event) => {
+  var element = event.target;
+
+  if (element.matches("button") === true) {
+
+    var index = element.parentElement.getAttribute("data-index");
+  }
+})
+
 
 // fetching the weather data & displaying it in the DOM 
 let renderWeather = (searchCity) => {
